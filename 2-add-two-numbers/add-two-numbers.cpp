@@ -13,7 +13,9 @@ public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode* templ1 = l1;
         ListNode* templ2 = l2;
-        vector<int> numbers;
+        ListNode* finalNodes = nullptr;
+        ListNode* mover = nullptr;
+
         while (templ1 != nullptr || templ2 != nullptr) {
             int currentValue = 0;
             if (templ1 != nullptr) {
@@ -24,27 +26,41 @@ public:
                 currentValue += templ2->val;
                 templ2 = templ2->next;
             }
-            numbers.push_back(currentValue);
-        }
-
-        for(int i = 0; i < numbers.size();++i){
-            if(numbers[i] > 9) {
-                numbers[i] -= 10;
-                if(i + 1 > numbers.size() - 1){
-                    numbers.push_back(1);
-                }
-                else{
-                    numbers[i + 1]++;
-                }
+            if(finalNodes == nullptr){
+                finalNodes = new ListNode(currentValue,nullptr);
+                mover = finalNodes;
+            }
+            else{
+                ListNode* temp = new ListNode(currentValue);
+                mover->next = temp;
+                mover = mover->next;
             }
         }
-        ListNode* finalNodes = new ListNode(numbers[0],nullptr);
-        ListNode* mover = finalNodes;
+
+        //ListNode* finalNodes = new ListNode(numbers[0],nullptr);
+        //ListNode* mover = finalNodes;
+        /*
         for(int i = 0; i < numbers.size();++i){
             ListNode* temp = new ListNode(numbers[i]);
             mover->next = temp;
             mover = mover->next;
         }
-        return finalNodes->next;
+        */
+        ListNode* temp = finalNodes;
+        while (temp != nullptr) {
+            if(temp->val > 9){
+                temp->val -= 10;
+                if(temp->next != nullptr){
+                    temp->next->val++;
+                }
+                else{
+                    ListNode* newTemp = new ListNode(1);
+                    temp->next = newTemp;
+                }
+            }
+            temp = temp->next;
+        }
+
+        return finalNodes;
     }
 };
