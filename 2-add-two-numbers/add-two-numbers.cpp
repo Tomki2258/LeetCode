@@ -36,16 +36,6 @@ public:
                 mover = mover->next;
             }
         }
-
-        //ListNode* finalNodes = new ListNode(numbers[0],nullptr);
-        //ListNode* mover = finalNodes;
-        /*
-        for(int i = 0; i < numbers.size();++i){
-            ListNode* temp = new ListNode(numbers[i]);
-            mover->next = temp;
-            mover = mover->next;
-        }
-        */
         ListNode* temp = finalNodes;
         while (temp != nullptr) {
             if(temp->val > 9){
@@ -60,7 +50,6 @@ public:
             }
             temp = temp->next;
         }
-
         return finalNodes;
     }
 };
