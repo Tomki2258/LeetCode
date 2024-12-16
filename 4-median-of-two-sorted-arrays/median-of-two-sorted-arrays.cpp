@@ -16,7 +16,9 @@ public:
             mergedArray.push_back(nums2[i]);
         }
 
-        for (int i = 1; i < mergedArray.size(); ++i) {
+        int mergedSize = mergedArray.size();
+
+        for (int i = 1; i < mergedSize; ++i) {
         int key =  mergedArray[i];
         int j = i - 1;
 
@@ -30,14 +32,14 @@ public:
 
         if(mergedArray.size() % 2 == 0)
         {
-            double a = mergedArray[mergedArray.size() / 2 - 1] ;
-            double b = mergedArray[mergedArray.size() / 2];
+            double a = mergedArray[mergedSize / 2 - 1] ;
+            double b = mergedArray[mergedSize / 2];
 
             double result = (a+b) / 2;
             return result;
         }
         else{
-            return mergedArray[mergedArray.size() / 2];
+            return mergedArray[mergedSize / 2];
         }
 
         return 0;
