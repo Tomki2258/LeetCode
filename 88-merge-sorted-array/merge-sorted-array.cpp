@@ -3,7 +3,7 @@ public:
     void insertionSort(vector<int>& arr, int n)
 {
     for (int i = 1; i < n; ++i) {
-        int key = arr[i];
+        short key = arr[i];
         int j = i - 1;
 
         while (j >= 0 && arr[j] > key) {
@@ -15,7 +15,7 @@ public:
 }
 
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        int inserted = 0;
+        short inserted = 0;
         for(int i = nums1.size() - 1 ;i >= 0;--i)
         {
             if(i > m - 1)
