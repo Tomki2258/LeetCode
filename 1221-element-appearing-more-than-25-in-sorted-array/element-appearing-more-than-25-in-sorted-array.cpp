@@ -1,7 +1,7 @@
 class Solution {
 public:
     int findSpecialInteger(vector<int>& arr) {
-        std::map<int,int> values;
+        std::map<int,short> values;
 
         for(int i = 0 ; i < arr.size();++i){
 
