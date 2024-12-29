@@ -1,14 +1,27 @@
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        for(int i = 0;i < matrix.size();++i){
-            if(matrix[i][matrix[i].size() / 2] == target) return true;
-            for(int j = 0;j<matrix[i].size();++j)
+class Solution
+{
+    public:
+        bool searchMatrix(vector<vector < int>> &matrix, int target)
+        {
+            for (int i = 0; i < matrix.size(); ++i)
             {
-                if(matrix[i][j] == target) return true;
-                else if(matrix[i][j] > target) break;
+                if (matrix[i][matrix[i].size() / 2] == target) return true;
+
+                if (matrix[i][matrix[i].size() / 2] > target)
+                {
+
+                    for (int j = matrix[i].size() / 2; j < matrix[i].size(); ++j)
+                    {
+                        if (matrix[i][j] == target) return true;
+                        else if (matrix[i][j] > target) break;
+                    }
+                }
+                for (int j = 0; j < matrix[i].size(); ++j)
+                {
+                    if (matrix[i][j] == target) return true;
+                    else if (matrix[i][j] > target) break;
+                }
             }
+            return false;
         }
-        return false;
-    }
 };
