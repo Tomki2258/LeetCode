@@ -6,7 +6,7 @@ public:
             {
                 int val = matrix[i][j];
                 if(val == target) return true;
-                else if(val > target) continue;
+                else if(val > target) break;
             }
             std::cout << "\n";
         }
