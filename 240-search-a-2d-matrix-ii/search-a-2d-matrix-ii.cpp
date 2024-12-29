@@ -7,20 +7,11 @@ class Solution
             {
                 if (matrix[i][matrix[i].size() / 2] == target) return true;
 
-                if (matrix[i][matrix[i].size() / 2] > target)
-                {
-
-                    for (int j = matrix[i].size() / 2; j < matrix[i].size(); ++j)
+                for (int j = 0; j < matrix[i].size(); ++j)
                     {
                         if (matrix[i][j] == target) return true;
                         else if (matrix[i][j] > target) break;
                     }
-                }
-                for (int j = 0; j < matrix[i].size(); ++j)
-                {
-                    if (matrix[i][j] == target) return true;
-                    else if (matrix[i][j] > target) break;
-                }
             }
             return false;
         }
