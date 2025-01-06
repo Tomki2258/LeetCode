@@ -22,15 +22,12 @@ class Solution
 
             TreeSum(node->left, low, high);
 
-            int value = node->val;
             if (node->val >= low && node->val <= high)
             {
                 std::cout << node->val << "\n";
                 sum += node->val;
             }
-            else if(node->val > high){
-                return;
-            }
+            
 
             TreeSum(node->right, low, high);
         }
