@@ -28,6 +28,9 @@ class Solution
                 std::cout << node->val << "\n";
                 sum += node->val;
             }
+            else if(node->val > high){
+                return;
+            }
 
             TreeSum(node->right, low, high);
         }
