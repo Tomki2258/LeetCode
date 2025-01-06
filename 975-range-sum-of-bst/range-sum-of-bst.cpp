@@ -21,6 +21,7 @@ class Solution
             }
 
             TreeSum(node->left, low, high);
+            if(node->val > high) return;
 
             if (node->val >= low && node->val <= high)
             {
