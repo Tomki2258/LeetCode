@@ -1,21 +1,20 @@
 class Solution {
 public:
     int dominantIndex(vector<int>& nums) {
-        int secondBiggest;
+        int secondBiggest = -1;
         int biggestIndex = 0;
-        for(int i = 0;i < nums.size();++i){
-            if(nums[i] >= nums[biggestIndex])
+        for (int i = 1; i < nums.size(); ++i) {
+            if (nums[i] > nums[biggestIndex]) {
+                secondBiggest = biggestIndex;
                 biggestIndex = i;
+            } else if (secondBiggest == -1 || nums[i] > nums[secondBiggest]) {
+                secondBiggest = i;
+            }
         }
 
 
-        for(int i = 0;i < nums.size();++i){
-            if(i == biggestIndex) continue;
-
-            if(nums[i] * 2 > nums[biggestIndex]){
-                std::cout << nums[i] * 2 << "-" << nums[biggestIndex] <<"\n";
-                return -1;
-            }
+        if(nums[secondBiggest] * 2 > nums[biggestIndex]){
+            return -1;
         }
 
         return biggestIndex;
